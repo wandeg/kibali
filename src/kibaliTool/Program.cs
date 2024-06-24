@@ -55,13 +55,25 @@ namespace KibaliTool
 
             documentCommand.SetHandler(DocumentCommand.Execute, new DocumentCommandBinder());
 
+            Command reportCommand = new Command("report") {
+                DocumentCommandBinder.PermissionFileOption,
+                DocumentCommandBinder.PermissionFolderOption,
+                DocumentCommandBinder.UrlOption,
+                DocumentCommandBinder.MethodOption,
+                DocumentCommandBinder.CombineMultipleOption,
+            };
+
+            reportCommand.SetHandler(ReportCommand.Execute, new DocumentCommandBinder());
+
+
             var rootCommand = new RootCommand()
             {
                 importCommand,
                 queryCommand,
                 exportCommand,
                 validateCommand,
-                documentCommand
+                documentCommand,
+                reportCommand
             };
             
 
