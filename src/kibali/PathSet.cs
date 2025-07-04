@@ -16,6 +16,13 @@ public class PathSet
     [JsonPropertyName("methods")]
     public SortedSet<string> Methods { get; set; } = new SortedSet<string>();
 
+    [JsonPropertyName("includeEquivalent")]
+    public bool? IncludeEquivalent { get; set; }
+
+    [JsonPropertyName("range")]
+    public string? Range { get; set; }
+
+
     [JsonPropertyName("alsoRequires")]
     public string AlsoRequires { get; set; }
 
